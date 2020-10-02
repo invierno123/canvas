@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>canvas画板</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      let ctx = canvas.getContext("2d");
+      let painting = false;
+      ctx.fillStyle = "rgb(200,0,0)";
+      ctx.strokeStyle = "none";
+      canvas.onmousedown = () => {
+        painting = true;
+      };
+      canvas.onmousemove = (e) => {
+        if (painting === true) {
+          ctx.beginPath();
+          ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+          ctx.stroke();
+          ctx.fill(); //填充圆点颜色
+        } else {
+          console.log("nothing to do");
+        }
+      };
+
+      canvas.onmouseup = () => {
+        painting = false;
+      };
+    </script>
+  </body>
+</html>
