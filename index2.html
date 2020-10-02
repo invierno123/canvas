@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>canvas画板</title>
+  </head>
+  <body>
+    <canvas id="canvas"> </canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
+      var ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "rgb(200,0,0)";
+      ctx.fillRect(10, 10, 55, 50);
+    </script>
+  </body>
+</html>
